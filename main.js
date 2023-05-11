@@ -1,6 +1,6 @@
 var selectedRow = null;
 
-//Showing the alert
+//This function will show the alert before main class is loaded
 function showAlert(message, className) {
     const div = document.createElement("div");
     div.className = `alert alert-${className}`;
@@ -13,15 +13,15 @@ function showAlert(message, className) {
 
 }
 
-//Adding Book
+//This Function will trigger if the button is clicked and information will be added to the booklist
 document.querySelector("#book-form").addEventListener("submit", (e) => {
     e.preventDefault();
 
     const bookName = document.querySelector("#bookName").value;
     const bookAuthor = document.querySelector("#bookAuthor").value;
 
-    //Validating the book
-    if( bookName == "" || bookAuthor == "") {
+    //Validating the book if the user put information in the input field
+    if( bookName == "" || bookAuthor == "" ) {
         showAlert("Please Input the Neccessary Book Name", "danger");
     }
     else {
@@ -53,6 +53,11 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
     }
 });
 
+//Clearing the Input field
+function clearField() {
+    document.querySelector("#bookName").value = "";
+    document.querySelector("#bookAuthor").value = "";
+}
 
 //Editing the Book Details
 document.querySelector("#book-list").addEventListener("click", (e) => {
@@ -65,11 +70,6 @@ document.querySelector("#book-list").addEventListener("click", (e) => {
 });
 
 
-//Clearing the Input field
-function clearField() {
-    document.querySelector("#bookName").value = "";
-    document.querySelector("#bookAuthor").value = "";
-}
 
 //Deleting the data
 
